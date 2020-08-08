@@ -1,0 +1,6 @@
+/vendor
+/composer.lock
+tests/**/output/
+tools/create-phar/tester.phar
+
+.idea

@@ -1,0 +1,23 @@
+{
+    "name": "tomas2d/brother-ptouch-php",
+    "description": "Read and edit files created by Brother P-Touch Editor",
+    "keywords": ["brother p touch php editor", "broher", "p touch editor", "lbx"],
+    "homepage": "https://github.com/Tomas2D/brother-ptouch-php",
+    "type": "library",
+    "require-dev": {
+        "nette/tester": "^2.3"
+    },
+    "require": {
+        "php": ">=7.1"
+    },
+    "authors": [
+        {
+            "name": "Tomas Dvorak",
+            "homepage": "https://tomas2d.cz"
+        }
+
+    ],
+    "autoload": {
+        "classmap": ["src/"]
+    }
+}
