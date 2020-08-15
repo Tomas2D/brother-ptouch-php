@@ -23,6 +23,11 @@ final class LabelWriter extends Parser
 		$xml = $this->readByEntry($zip, function (\SimpleXMLElement &$value, int $index) use (&$data) {
 			if (isset($data[$index])) {
 				$value[0] = $data[$index];
+
+				$charLenEl = $value->xpath('following-sibling::text:stringItem');
+				if (!empty($charLenEl)) {
+					$charLenEl[0]->attributes()->charLen = (string)mb_strlen($data[$index]);
+				}
 			}
 		}, $xPathSelector);
 

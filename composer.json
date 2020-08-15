@@ -8,7 +8,8 @@
         "nette/tester": "^2.3"
     },
     "require": {
-        "php": ">=7.1"
+        "php": ">=7.1",
+        "ext-mbstring": "*"
     },
     "authors": [
         {
