@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace BrotherPTouch;
 
 final class LabelWriter extends Parser
 {

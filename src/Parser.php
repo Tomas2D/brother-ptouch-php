@@ -1,8 +1,8 @@
 <?php
 
-namespace App;
+namespace BrotherPTouch;
 
-use App\Exceptions\InvalidLabelFileException;
+use BrotherPTouch\Exceptions\InvalidLabelFileException;
 
 abstract class Parser
 {

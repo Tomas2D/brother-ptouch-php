@@ -2,7 +2,7 @@
 
 require_once __DIR__ . '/bootstrap.php';
 
-use App\LabelExtractor;
+use BrotherPTouch\LabelExtractor;
 use Tester\Assert;
 
 

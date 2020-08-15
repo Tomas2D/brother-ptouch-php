@@ -2,11 +2,12 @@
 
 require_once __DIR__ . '/bootstrap.php';
 
-use App\LabelWriter;
-use App\LabelExtractor;
+use BrotherPTouch\LabelWriter;
+use BrotherPTouch\LabelExtractor;
 use Tester\Assert;
+use Tester\TestCase;
 
-class BarcodeWriter extends \Tester\TestCase
+class BarcodeWriter extends TestCase
 {
 	private $pathToLabel = __DIR__ . '/files/qr_code.lbx';
 	private $pathToEditedLabel;
