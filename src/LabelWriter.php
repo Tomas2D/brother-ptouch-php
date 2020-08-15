@@ -12,7 +12,8 @@ final class LabelWriter extends Parser
 	public function write(array $data, string $xPathSelector = '//text:text/pt:data')
 	{
 		// Create copy of archive
-		$temp = tempnam(sys_get_temp_dir(), 'pt_') . '.lbx';
+		$temp = tempnam(sys_get_temp_dir(), 'pt_');
+		rename($temp, $temp .= '.lbx');
 		copy($this->path, $temp);
 
 		// Open archive
