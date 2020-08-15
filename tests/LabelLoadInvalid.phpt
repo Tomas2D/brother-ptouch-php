@@ -2,27 +2,30 @@
 
 require_once __DIR__ . '/bootstrap.php';
 
-use App\LabelWriter;
-use App\LabelExtractor;
-use Tester\Assert;
+use BrotherPTouch\LabelExtractor;
+use Tester\TestCase;
 
-class LabelLoadInvalid extends \Tester\TestCase
+class LabelLoadInvalid extends TestCase
 {
-	public function testOpenNonExistentFile()
+	public function getFilenames()
 	{
-		Assert::exception(function() {
-			$path = __DIR__ . '/files/label-not-exist.lbx';
-			new LabelExtractor($path);
-		}, \App\Exceptions\InvalidLabelFileException::class);
+		return [
+			['label-not-exist.lbx'],
+			['label-malformed-content.lbx'],
+			['label-malformed-no-xml.lbx'],
+			['label-not-valid.lbx'],
+			['label-not-valid.txt']
+		];
 	}
 
-	public function testOpenNonValidFormat()
+	/**
+	 * @dataProvider getFilenames
+	 * @throws \BrotherPTouch\Exceptions\InvalidLabelFileException
+	 */
+	public function testLoop(string $path)
 	{
-		Assert::exception(function() {
-			$path = __DIR__ . '/files/label-not-valid.lbx';
-			$extractor = new LabelExtractor($path);
-			$extractor->extract();
-		}, \App\Exceptions\InvalidLabelFileException::class);
+		$extractor = new LabelExtractor('./files/' . $path);
+		$extractor->extract();
 	}
 }
 

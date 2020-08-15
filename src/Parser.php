@@ -65,12 +65,12 @@ abstract class Parser
 	{
 		$content = $zip->getFromName(self::CONTENT_FILENAME);
 		if ($content === FALSE) {
-			throw new InvalidLabelFileException();
+			throw new InvalidLabelFileException('Archive is malformed, does not contain ' . self::CONTENT_FILENAME);
 		}
 
-		$xml = simplexml_load_string($content);
+		$xml = @simplexml_load_string($content);
 		if (FALSE === ($xml instanceof \SimpleXMLElement)) {
-			throw new InvalidLabelFileException('File is malformed');
+			throw new InvalidLabelFileException('File is malformed, it is not in valid XML format.');
 		}
 
 		$matches = $xml->xpath($xPathSelector);
